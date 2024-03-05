@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $query = "INSERT INTO users (username, email, password, role_id) VALUES ('$username', '$email', '$password', $role_id)";
 
     if (mysqli_query($db, $query)) {
-        echo "header('location: login.php')";
+        echo "<script>alert('Akun Berhasil! Silahkan Login'); window.location.href = 'login.php';</script>";
     } else {
         echo "Error: " . $query . "<br>" . mysqli_error($koneksi);
     }

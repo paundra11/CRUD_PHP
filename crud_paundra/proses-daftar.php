@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Periksa apakah query berhasil dieksekusi
     if ($query) {
-        echo "<script>alert('Data Berhasil Disimpan, dan akan diteruskan ke email anda !');
+        echo "<script>alert('Data Berhasil Disimpan');
         window.location='halmut.php';</script>";
     } else {
         // Jika query gagal, alihkan pengguna kembali ke halaman utama dengan parameter status=gagal
@@ -29,3 +29,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     die("Akses Ditolak");
 }
 ?>
+

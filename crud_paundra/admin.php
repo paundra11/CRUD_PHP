@@ -18,7 +18,7 @@ if (!isset($_SESSION['role_id'])){
   <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.css' integrity='sha512-tx5+1LWHez1QiaXlAyDwzdBTfDjX07GMapQoFTS74wkcPMsI3So0KYmFe6EHZjI8+eSG0ljBlAQc3PQ5BTaZtQ==' crossorigin='anonymous' />
-  
+
 </head>
 
 <body>
@@ -65,11 +65,11 @@ if (!isset($_SESSION['role_id'])){
                 ?>
                   <tr>
                     <td><?php echo $no++ ?></td>
-                    <td><?php echo $member['nama'] ?></td>
-                    <td><?php echo $member['email'] ?></td>
-                    <td><?php echo $member['jk'] ?></td>
-                    <td><?php echo $member['id_jabatan'] ?></td>
-                    <td><?php echo $member['angkatan'] ?></td>
+                    <td><?php echo htmlspecialchars($member['nama'])?></td>
+                    <td><?php echo htmlspecialchars($member['email']) ?></td>
+                    <td><?php echo htmlspecialchars($member['jk']) ?></td>
+                    <td><?php echo htmlspecialchars($member['id_jabatan']) ?></td>
+                    <td><?php echo htmlspecialchars($member['angkatan']) ?></td>
                     <td> 
                       <a class="btn btn-primary btn-sm" href="form-edit.php?id=<?php echo $member['id'] ?>">Edit</a>
                       <a class="btn btn-danger btn-sm" href="hapus.php?id=<?php echo $member['id'] ?>">Hapus</a>

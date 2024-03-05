@@ -21,7 +21,7 @@ if(mysqli_num_rows($query) < 1){
 <html>
 <body>
 <head>
-<title>Website Exercise GYM</title>
+<title>Paskibra RFTO</title>
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 </head>
 <div class="container">

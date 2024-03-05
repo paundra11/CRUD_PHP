@@ -276,21 +276,47 @@ if (!isset($_SESSION['role_id'])) {
                   <li class="nav-item">
                      <a class="nav-link mx-2" href="#lomba"><i class="fa-solid fa-hand-fist"></i> Perlombaan</a>
                   </li>
-                  <li class="nav-item">
-                     <a class="nav-link mx-2" href="anggota.php"><i class="fa-solid fa-address-card"></i> Struktur Organisasi</a>
+                  <li class="nav-item dropdown">
+                  <a class="nav-link mx-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Organisasi <i class="fa-solid fa-chevron-down"></i></a>
+
+                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="sejarah.php"><i class="fa-solid fa-landmark"></i> Sejarah</a></li>
+                        <li>
+                           <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="anggota.php"><i class="fa-solid fa-sitemap"></i> Struktur Organisasi</a></li>
+                     </ul>
+                  </li>
+                  <li class="nav-item dropdown">
+                     <a class="nav-link mx-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-user"></i>
+                        <?php 
+            // Periksa apakah nama pengguna sudah disimpan dalam sesi
+            if(isset($_SESSION['username'])) {
+                echo $_SESSION['username'];
+            } else {
+                echo "Pengguna"; // Default jika nama pengguna tidak tersedia
+            }
+        ?>     
+        <i class="fa-solid fa-chevron-down"></i>
+                     </a>
+                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="profil.php">Lihat Profil</a></li>
+                        <li>
+                           <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="keluar.php"><i class="fa-solid fa-right-from-bracket"></i> Keluar</a></li>
+                     </ul>
                   </li>
                   <?php
                   include('konek.php');
-                  // Periksa apakah pengguna memiliki role_id 2
+                  // Periksa apakah pengguna memiliki role_id 2 (admin)
                   if (isset($_SESSION['role_id']) && $_SESSION['role_id'] == 1) {
                      echo '<li class="nav-item ms-3">
               <a class="btn btn-primary btn-rounded" href="admin.php">Admin</a>
-               </li>';
+           </li>';
                   }
                   ?>
-                  <li class="nav-item ms-3">
-                     <a class="btn btn-primary btn-rounded" href="keluar.php"><i class="fa-solid fa-right-from-bracket"></i></a>
-                  </li>
                </ul>
             </div>
          </div>
@@ -349,7 +375,9 @@ if (!isset($_SESSION['role_id'])) {
 
                   </div>
                   <div class="postcard__bar"></div>
-                  <div class="postcard__preview-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!</div>
+                  <div class="postcard__preview-txt">Lomba Ini diadakan di MAN 3 JAKARTA, SMKN 1 tampil no urut 14 dan juga kami dari SMKN 1 membawa 1 pasukan dengan terdiri dari 12 orang
+                     pada lomba ini SMKN 1 mendapat juara UTAMA 2 dan juga juara Danton terbaik 2.
+                  </div>
                </div>
             </article>
             <article class="postcard dark red">
@@ -408,7 +436,7 @@ if (!isset($_SESSION['role_id'])) {
                      <div class="contact">
                         <h3>Anyone Link</h3>
                         <ul class="lik">
-                           <li> <a href="#">About us</a></li>
+                           <li> <a href="sejarah.php">Sejarah</a></li>
                            <li> <a href="#">Terms and conditions</a></li>
                            <li> <a href="#">Privacy policy</a></li>
                            <li> <a href="#">News</a></li>
@@ -437,7 +465,7 @@ if (!isset($_SESSION['role_id'])) {
          </div>
       </footr>
    </section>
-   
+
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
